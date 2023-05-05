@@ -1,13 +1,13 @@
 
 % input image directory, typically more than 5 images are needed
-data_dir = 'test_data/set5';
+PATH = 'test_data/set5';
 
-file_list = dir(fullfile(data_dir,'*.jpg'));
-file_list = [file_list dir(fullfile(data_dir,'*.JPG'))];
+file_list = dir(fullfile(PATH,'*.jpg'));
+file_list = [file_list dir(fullfile(PATH,'*.JPG'))];
 file_names = {file_list.name};
 number_of_files = size(file_names,2);
 
-ref_img = imread(fullfile(data_dir,file_names{1}));
+ref_img = imread(fullfile(PATH,file_names{1}));
 
 scaling = 1/3;
 % resize if input images are too large. SIFT takes a long time for large images, 
