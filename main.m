@@ -1,6 +1,6 @@
 
 % input image directory, typically more than 5 images are needed
-PATH = 'test_data/set5';
+PATH = 'test_data/image_set_2';
 
 file_list = dir(fullfile(PATH,'*.jpg'));
 file_list = [file_list dir(fullfile(PATH,'*.JPG'))];
@@ -22,7 +22,7 @@ end
 
 number_of_imgs = number_of_files;
 % override, reduce number of images used for experiment and demo
-%number_of_imgs = 3;
+%number_of_imgs = 5;
 
 ransac_n = 50;
 ransac_eps = 0.5;
@@ -31,7 +31,7 @@ ransac_eps = 0.5;
 output = zeros(img_h, img_w, 3, number_of_imgs, 'uint8'); 
 output(:,:,:,1) = uint8(small_ref_img);
 for i = 2:number_of_imgs
-    img_i = imread(fullfile(data_dir,file_names{i}));
+    img_i = imread(fullfile(PATH,file_names{i}));
     % resize for faster SIFT
     if scaling ~= 1
         small_img_i = imresize(img_i, scaling, 'bilinear');
